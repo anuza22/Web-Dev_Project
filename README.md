@@ -22,7 +22,7 @@ Book Fest is powered by the following technologies:
 Book Fest was developed by the following individuals:
 
 - Akturina Anuza: Front-end development and back-end development.
-- Muhtarov Ernar: Back-end development.
+- Mukhtaruly Ernar: Back-end development.
 - Izteleuova Arailym: Front-end development.
 
 Your feedback and contributions are invaluable in shaping the future of Book Fest. Join us in our mission to revolutionize the way people discover, review, and purchase books online. Happy reading!
