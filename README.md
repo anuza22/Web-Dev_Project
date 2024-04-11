@@ -1,6 +1,6 @@
 # Kitap.Al
 
-Kitap.Al is an online platform designed to enhance the book purchasing and reading experience for users. With features such as book ratings, categorization, recommendations, notifications, and user reviews, Book Fest aims to provide a comprehensive solution for book enthusiasts.
+Kitap.Al is an online platform designed to enhance the book purchasing and reading experience for users. With features such as book ratings, categorization, recommendations, notifications, and user reviews, Kitap.Al aims to provide a comprehensive solution for book enthusiasts.
 
 ## How it Works
 
@@ -8,7 +8,7 @@ Kitap.Al employs an innovative rating system to highlight the most popular books
 
 ## Contributing
 
-Kitap.Al is an open-source project, and contributions from the community are highly appreciated. Whether it's adding new features, fixing bugs, or improving existing functionalities, every contribution helps make Book Fest better for everyone.
+Kitap.Al is an open-source project, and contributions from the community are highly appreciated. Whether it's adding new features, fixing bugs, or improving existing functionalities, every contribution helps make Kitap.Al better for everyone.
 
 ## Created by
 
