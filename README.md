@@ -1,6 +1,6 @@
-# Book Fest
+# Kitap.Al
 
-Book Fest is an online platform designed to enhance the book purchasing and reading experience for users. With features such as book ratings, categorization, recommendations, notifications, and user reviews, Book Fest aims to provide a comprehensive solution for book enthusiasts.
+Kitap.Al is an online platform designed to enhance the book purchasing and reading experience for users. With features such as book ratings, categorization, recommendations, notifications, and user reviews, Book Fest aims to provide a comprehensive solution for book enthusiasts.
 
 ## How it Works
 
