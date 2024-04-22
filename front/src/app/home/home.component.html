@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="nav-bar">
+    <img id="logo" src="assets/kitapal_logo.png">
+    <button id="catalog" (click) = "toggleCatalogMenu()">
+      <img id="hamburger" src="assets/Hamburger_icon.svg.png">
+      <p>Catalog</p>
+    </button>
+    <div *ngIf="showCatalogMenu" class="catalog-menu">
+        <!-- Отобразить мини-выбор категорий книг -->
+        <ul>
+          <li><a routerLink="/category/fiction">Художественная литература</a></li>
+          <li><a routerLink="/category/non-fiction">Научно-популярная литература</a></li>
+          <!-- Добавьте больше категорий по мере необходимости -->
+        </ul>
+      </div>
+    <input type="text" id="search" placeholder="Search">
+    <button id="search-button">
+      <img src="assets/search-icon.webp">
+      <p>Search</p>
+    </button>
+    <a id="cart" href="">
+      <img id="cart-logo" src="assets/cart.png"><p>Cart</p>
+    </a>
+    <a href="" id="profile">
+      <img id="profile-logo" src="assets/profile.png">
+      <p *ngIf="loggedIn">Profile</p>
+      <p *ngIf="loggedIn == false">Login</p>
+    </a>
+  </div>
+  
