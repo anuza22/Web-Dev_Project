@@ -18,8 +18,22 @@ export class BookApiService {
     return this.http.get<Book>(`${this.baseUrl}volumes/${bookId}?key=${this.apiKey}`);
   }
 
+  bannerApiData(): Observable<Book[]> {
+    return this.http.get<any>(`${this.baseUrl}volumes?q=popular&key=${this.apiKey}`)
+      .pipe(
+        map(response => response.items.map((item: any) => this.extractBookData(item)))
+      );
+  }
+
   searchBooks(query: string): Observable<Book[]> {
     return this.http.get<any>(`${this.baseUrl}volumes?q=${query}&key=${this.apiKey}`)
+      .pipe(
+        map(response => response.items.map((item: any) => this.extractBookData(item)))
+      );
+  }
+
+  getBooksByCategory(category: string): Observable<Book[]> {
+    return this.http.get<any>(`${this.baseUrl}volumes?q=subject:${category}&key=${this.apiKey}`)
       .pipe(
         map(response => response.items.map((item: any) => this.extractBookData(item)))
       );

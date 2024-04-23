@@ -1,3 +1,5 @@
+<!-- навигация по home -->
+
 <div class="nav-bar">
     <img id="logo" src="assets/kitapal_logo.png">
     <button id="catalog" (click) = "toggleCatalogMenu()">
@@ -7,8 +9,8 @@
     <div *ngIf="showCatalogMenu" class="catalog-menu">
         <!-- Отобразить мини-выбор категорий книг -->
         <ul>
-          <li><a routerLink="/category/fiction">Художественная литература</a></li>
-          <li><a routerLink="/category/non-fiction">Научно-популярная литература</a></li>
+          <li><a href="#fiction">Художественная литература</a></li>
+          <li><a href="#non-fiction">Научно-популярная литература</a></li>
           <!-- Добавьте больше категорий по мере необходимости -->
         </ul>
       </div>
@@ -26,4 +28,170 @@
       <p *ngIf="loggedIn == false">Login</p>
     </a>
   </div>
+
   
+<div class = "contain-fluid">
+  <div id="carouselExampleLight" class="carousel carousel-light slide">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active"
+           data-bs-interval="10000"
+           *ngFor="let item of bannerResult; let i=index"
+           [ngClass]="{active: i === 0}">
+        <img [src]="item.thumbnail" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.authors }}</p>
+          <p>{{ item.publishedDate }}</p>
+        </div>
+      </div>
+    </div>
+
+  <button class = "carousel-control-prev" type="button" data-bs-target="#carouselExampleLight">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  </div>
+</div>
+
+<!-- banner end -->
+
+<div class="contain mt-3 p-4">
+  <div class="row">
+    <h5 class="text-white">Fiction Books</h5>
+    <div class="rowposter">
+      <ng-container *ngFor="let f of fictionBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <h5 class="text-white">Fantasy Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of fantasyBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Mystery Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of mysteryBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <h5 class="text-white">Adventure Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of adventureBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Romance Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of romanceBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Biography Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of biographyBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">History Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of historyBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Science Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of scienceBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Business Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of businessBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Computers Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of computersBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Cooking Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of cookingBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Health Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of healthBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Self-Help Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of selfHelpBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <h5 class="text-white">Travel Books</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let f of travelBooks">
+        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
+      </ng-container>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
