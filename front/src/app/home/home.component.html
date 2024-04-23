@@ -14,11 +14,24 @@
           <!-- Добавьте больше категорий по мере необходимости -->
         </ul>
       </div>
-    <input type="text" id="search" placeholder="Search">
-    <button id="search-button">
+    <input type="text" id="search" placeholder="Enter book title or author"  [(ngModel)]="searchQuery">
+    <button id="search-button" (click)="searchBooks()">
       <img src="assets/search-icon.webp">
       <p>Search</p>
     </button>
+    <div *ngIf="searchResults.length > 0">
+      <h2>Search Results</h2>
+      <ul>
+        <li *ngFor="let book of searchResults">
+          <h3>{{ book.title }}</h3>
+          <p>Authors: {{ book.authors.join(', ') }}</p>
+          <!-- Add more book details here -->
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="searchResults.length === 0 && searchPerformed">
+      <p>No results found for '{{ searchQuery }}'.</p>
+    </div>
     <a id="cart" href="">
       <img id="cart-logo" src="assets/cart.png"><p>Cart</p>
     </a>
@@ -62,7 +75,7 @@
 
 <div class="contain mt-3 p-4">
   <div class="row">
-    <h5 class="text-white">Fiction Books</h5>
+    <h5 class="text-black">Fiction Books</h5>
     <div class="rowposter">
       <ng-container *ngFor="let f of fictionBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -72,7 +85,7 @@
 
 
   <div class="row mt-4">
-    <h5 class="text-white">Fantasy Books</h5>
+    <h5 class="text-black">Fantasy Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of fantasyBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -81,7 +94,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Mystery Books</h5>
+    <h5 class="text-black">Mystery Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of mysteryBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -91,7 +104,7 @@
 
 
   <div class="row mt-4">
-    <h5 class="text-white">Adventure Books</h5>
+    <h5 class="text-black">Adventure Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of adventureBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -100,7 +113,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Romance Books</h5>
+    <h5 class="text-black">Romance Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of romanceBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -109,7 +122,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Biography Books</h5>
+    <h5 class="text-black">Biography Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of biographyBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -118,7 +131,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">History Books</h5>
+    <h5 class="text-black">History Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of historyBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -127,7 +140,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Science Books</h5>
+    <h5 class="text-black">Science Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of scienceBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -136,7 +149,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Business Books</h5>
+    <h5 class="text-black">Business Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of businessBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -145,7 +158,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Computers Books</h5>
+    <h5 class="text-black">Computers Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of computersBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -154,7 +167,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Cooking Books</h5>
+    <h5 class="text-black">Cooking Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of cookingBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -163,7 +176,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Health Books</h5>
+    <h5 class="text-black">Health Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of healthBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -172,7 +185,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Self-Help Books</h5>
+    <h5 class="text-black">Self-Help Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of selfHelpBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
@@ -181,7 +194,7 @@
   </div>
 
   <div class="row mt-4">
-    <h5 class="text-white">Travel Books</h5>
+    <h5 class="text-black">Travel Books</h5>
     <div class="rowposter mt-3 p-2">
       <ng-container *ngFor="let f of travelBooks">
         <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">

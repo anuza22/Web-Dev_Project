@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit{
   books: Book[] = [];
   loggedIn: boolean = true;
   showCatalogMenu: boolean = false;
+  searchResults: Book[] = [];
+  searchQuery: string = '';
 
   bannerResult:Book[]=[];
 
@@ -80,6 +82,23 @@ export class HomeComponent implements OnInit{
           console.error(`Error loading books for category ${category}:`, error);
         }
       });
+  }
+
+  searchBooks(): void {
+    if (this.searchQuery.trim() !== '') {
+      this.bookApiService.searchBooks(this.searchQuery)
+        .subscribe({
+          next: (results: Book[]) => {
+            this.searchResults = results;
+            console.log('Search results:', results);
+          },
+          error: (error: any) => {
+            console.error('Error searching books:', error);
+          }
+        });
+    } else {
+      this.searchResults = []; // Clear search results if search query is empty
+    }
   }
 
 }

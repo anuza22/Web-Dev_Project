@@ -115,8 +115,10 @@
   #search-button p{
   
   }
+
   .carousel-inner{
-    height: 700px;
+    display: flex;
+    flex-direction: row;
   }
   .carousel-inner .carousel-item img{
     height: 700px;
