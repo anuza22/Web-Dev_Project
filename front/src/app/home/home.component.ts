@@ -4,23 +4,23 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Book } from '../models';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterLink, FormsModule],
+  imports: [CommonModule, HttpClientModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
 
+  PROF_URL!: string;
+
   constructor(private bookApiService: BookApiService){}
 
   books: Book[] = [];
-  loggedIn: boolean = true;
+  loggedIn: boolean = false;
   showCatalogMenu: boolean = false;
-  searchQuery: string = '';
 
   bannerResult:Book[]=[];
 
@@ -40,8 +40,15 @@ export class HomeComponent implements OnInit{
   travelBooks: Book[] = [];
 
   ngOnInit(): void {
-    this.loadBooksByCategories();
-    this.bannerData();
+    if(this.fictionBooks.length == 0){
+      this.loadBooksByCategories();
+      this.bannerData();
+    }
+    if(this.loggedIn){
+      this.PROF_URL = '/profile'
+    } else {
+      this.PROF_URL = '/login'
+    }
   }
 
   bannerData() {
@@ -84,12 +91,6 @@ export class HomeComponent implements OnInit{
       });
   }
 
-  searchBooks(): void {
-    if (this.searchQuery.trim() !== '') {
-      this.bookApiService.searchBooksByTitleOrAuthor(this.searchQuery).subscribe((books: Book[]) => {
-        this.books = books;
-      });
-    }
-  }
+
 
 }

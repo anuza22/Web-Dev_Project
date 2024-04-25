@@ -1,11 +1,17 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-import { UserRegisterComponent } from './user-register/user-register.component';
-import { RegisterComponent } from './register/register.component';
+import {CartComponent} from "./cart/cart.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 export const routes: Routes = [
-    {path:'', component:HomeComponent},
+    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'home', component:HomeComponent},
     {path:'book/:id',component:BookDetailComponent},
-    {path:'register', component:RegisterComponent}
+    {path:'favorite', component: CartComponent},
+    {path:'login', component:LoginComponent},
+    {path:'register', component:RegisterComponent},
+    {path:'profile', component:UserProfileComponent}
 ];

@@ -19,10 +19,10 @@ body {
   margin-bottom: 20px;
 }
 .thumbnails {
+  overflow-y: visible;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  overflow-y: visible;
 }
 .thumbnail {
   flex: 0 0 auto;
