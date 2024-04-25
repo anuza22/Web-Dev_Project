@@ -2,8 +2,8 @@
 
 <div class="nav-bar">
     <img id="logo" src="assets/kitapal_logo.png">
-    <input type="text" id="search" placeholder="Search">
-    <button id="search-button">
+    <input type="text" [(ngModel)]="searchQuery" id="search" placeholder="Search">
+    <button id="search-button" (click)="searchBooks()">
       <img src="assets/search-icon.webp">
       <p>Search</p>
     </button>
@@ -15,6 +15,18 @@
       <p *ngIf="loggedIn">Profile</p>
       <p *ngIf="loggedIn == false">Login</p>
     </a>
+  </div>
+
+
+  <div class="container">
+    <div class="books-list">
+      <div class="book" *ngFor="let book of books">
+        <img [src]="book.thumbnail" alt="{{ book.title }}">
+        <h3>{{ book.title }}</h3>
+        <p *ngIf="book.authors.length > 0">By: {{ book.authors.join(', ') }}</p>
+      </div>
+      <div *ngIf="books.length === 0">No books found</div>
+    </div>
   </div>
 
 
