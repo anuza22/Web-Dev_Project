@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../service/register.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
-    RouterLink
-  ],
+    RouterLink, CommonModule
+],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -45,6 +45,8 @@ export class RegisterComponent {
      alert("every field need valid data")
     }
    }
+
+   
  
 
 }
