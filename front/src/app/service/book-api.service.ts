@@ -12,7 +12,7 @@ export class BookApiService {
   constructor(private http:HttpClient) { }
 
   baseUrl="https://www.googleapis.com/books/v1/";
-  apiKey='AIzaSyBv5BmlbAMhFYTuP-Qk3yODMcwAQYuiy5M';
+  apiKey='AIzaSyAfrKiM2pERprGSjHavtMRCgF_yFULQoX8';
 
   getBookById(bookId: string): Observable<Book> {
     return this.http.get<Book>(`${this.baseUrl}volumes/${bookId}?key=${this.apiKey}`);

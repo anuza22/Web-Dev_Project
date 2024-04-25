@@ -7,10 +7,10 @@
       <img src="assets/search-icon.webp">
       <p>Search</p>
     </button>
-    <a id="cart" href="">
-      <img id="cart-logo" src="assets/cart.png"><p>Cart</p>
+    <a id="cart" [routerLink]="['/favorite/']" >
+      <img id="cart-logo" src="assets/favorite.png"><p>Favorite</p>
     </a>
-    <a href="" id="profile">
+    <a [routerLink]="[PROF_URL]" id="profile">
       <img id="profile-logo" src="assets/profile.png">
       <p *ngIf="loggedIn">Profile</p>
       <p *ngIf="loggedIn == false">Login</p>
@@ -22,7 +22,7 @@
   <div class="hero">
     <div class="hero-text">
       <h1>Read Unlimited Books on Kitap.Al</h1>
-      <p>Book is cheap for blind mind and priceless for wise mind.</p>
+      <p>Book is cheap for poor mind and priceless for wise mind.</p>
     </div>
   </div>
 
@@ -31,6 +31,7 @@
     <div class="thumbnails">
       <div class="thumbnail" *ngFor="let book of fictionBooks">
         <img [src]="book.thumbnail" [routerLink]="['/book/',book.id]" alt="Thumbnail">
+        <p>{{book.title}}</p>
       </div>
     </div>
   </div>

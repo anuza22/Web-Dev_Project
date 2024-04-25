@@ -14,10 +14,12 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
 
+  PROF_URL!: string;
+
   constructor(private bookApiService: BookApiService){}
 
   books: Book[] = [];
-  loggedIn: boolean = true;
+  loggedIn: boolean = false;
   showCatalogMenu: boolean = false;
 
   bannerResult:Book[]=[];
@@ -38,8 +40,15 @@ export class HomeComponent implements OnInit{
   travelBooks: Book[] = [];
 
   ngOnInit(): void {
-    this.loadBooksByCategories();
-    this.bannerData();
+    if(this.fictionBooks.length == 0){
+      this.loadBooksByCategories();
+      this.bannerData();
+    }
+    if(this.loggedIn){
+      this.PROF_URL = '/profile'
+    } else {
+      this.PROF_URL = '/login'
+    }
   }
 
   bannerData() {
@@ -81,5 +90,7 @@ export class HomeComponent implements OnInit{
         }
       });
   }
+
+
 
 }
