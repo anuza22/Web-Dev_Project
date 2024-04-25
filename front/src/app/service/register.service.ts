@@ -26,10 +26,12 @@ export class RegisterService {
   //   return this.http.get<any[]>(this.baseUrl)
   // }
 
-  login(username:string,password:string):Observable<any>{
-
-    const body = {username:username,password:password}
-    return this.http.post(this.loginUrl,body)
+  login(email: string, password: string): Observable<any> {
+    const body = { username: email, password: password };
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json"
+    });
+    return this.http.post(this.loginUrl, body, { headers });
   }
 
   getUserDetails(yourTokenVariable:string){

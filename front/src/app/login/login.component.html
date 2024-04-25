@@ -2,11 +2,24 @@
 <body>
 <div class="container">
   <h1>Login to Kitap.Al</h1>
-  <form action="#" method="post">
-    <input type="text" name="email" placeholder="Email Address" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Login">
+  <!-- <form action="#" method="post"> -->
+  <form #loginForm="ngForm" (ngSubmit)="login()">
+    <input type="text" name="email" placeholder="Email Address" [(ngModel)]="email" required>
+    <input type="password" name="password" placeholder="Password"  [(ngModel)]="password" required>
+    <!-- <input type="submit" value="Login"> -->
+  <!-- </form>  -->
+  <!-- <form #loginForm="ngForm" (ngSubmit)="login()"> -->
+    <!-- <div class="form-group"> -->
+      <!-- <label for="username">Username</label> -->
+      <!-- <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required> -->
+    <!-- </div> -->
+    <!-- <div class="form-group"> -->
+      <!-- <label for="password">Password</label> -->
+      <!-- <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required> -->
+    <!-- </div> -->
+    <button type="submit" class="btn btn-primary">Login</button>
   </form>
+  
   <p>You have no account? <a [routerLink]="['/register']">Regiter here</a></p>
 </div>
 </body>

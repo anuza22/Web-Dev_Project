@@ -30,16 +30,31 @@ input[type="password"] {
   border-radius: 5px;
   box-sizing: border-box;
 }
-input[type="submit"] {
+/* input[type="submit"] {
   width: 100%;
   background-color: #ed9b3b; /* Main color */
-  color: #fff;
+  /* color: #fff;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-}
-input[type="submit"]:hover {
+} */
+/* input[type="submit"]:hover {
   background-color: #d5781c; /* Darker shade of main color on hover */
+/* }  */
+
+.btn-primary {
+  background-color: #ed9c3d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #d4811f;
 }
