@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Book } from '../models';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterLink],
+  imports: [CommonModule, HttpClientModule, RouterLink, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit{
   books: Book[] = [];
   loggedIn: boolean = true;
   showCatalogMenu: boolean = false;
+  searchQuery: string = '';
 
   bannerResult:Book[]=[];
 
@@ -80,6 +82,14 @@ export class HomeComponent implements OnInit{
           console.error(`Error loading books for category ${category}:`, error);
         }
       });
+  }
+
+  searchBooks(): void {
+    if (this.searchQuery.trim() !== '') {
+      this.bookApiService.searchBooksByTitleOrAuthor(this.searchQuery).subscribe((books: Book[]) => {
+        this.books = books;
+      });
+    }
   }
 
 }
