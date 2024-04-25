@@ -34,15 +34,15 @@ export class RegisterComponent implements OnInit {
       const userDataValue = this.userData.value;
       console.log(userDataValue);
       
-      this.regSer.userRegister(userDataValue).subscribe(
-        (response) => {
+      this.regSer.userRegister(userDataValue).subscribe({
+        next: (response) => {
           alert("Registered successfully");
           this.router.navigate(['login']);
         },
-        (error) => {
+        error: (error) => {
           console.error("Registration failed:", error);
           alert("Registration failed. Please try again later.");
-        }
+        }}
       );
     } else {
       alert("Please provide valid data for all fields.");
