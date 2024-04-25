@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('http://balbal.kz/wp-content/uploads/2020/07/325f5de838974363f7a87905f87721d1-e1595331073458.jpg'); /* Add your book-themed background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333; /* Text color */
+}
+.container {
+  width: 80%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #ed9b3b; /* Main color */
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  width: 100%;
+  background-color: #ed9b3b; /* Main color */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+input[type="submit"]:hover {
+  background-color: #d5781c; /* Darker shade of main color on hover */
+}

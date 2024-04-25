@@ -11,10 +11,10 @@ class User(models.Model):
         return self.name
 
 class Book(models.Model):
-    name = models.CharField(max_length=100)
+    id = models.CharField(max_length=50, primary_key=True)
+    title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    genre = models.CharField(max_length=25)
-    cover = models.ImageField()
+    cover = models.CharField(max_length=100)
     price = models.IntegerField()
 
     def __str__(self):

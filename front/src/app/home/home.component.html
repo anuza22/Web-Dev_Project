@@ -29,56 +29,46 @@
     </a>
   </div>
 
-  
-<div class = "contain-fluid">
-  <div id="carouselExampleLight" class="carousel carousel-light slide">
 
-    <div class="carousel-inner">
-      <div class="carousel-item active"
-           data-bs-interval="10000"
-           *ngFor="let item of bannerResult; let i=index"
-           [ngClass]="{active: i === 0}">
-        <img [src]="item.thumbnail" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.authors }}</p>
-          <p>{{ item.publishedDate }}</p>
-        </div>
+<div class="container">
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Watch Unlimited Movies & TV Shows</h1>
+      <p>Join Netflix today. Cancel anytime.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Fiction books</h2>
+    <div class="thumbnails">
+      <div class="thumbnail" *ngFor="let book of fictionBooks">
+        <img [src]="book.thumbnail" [routerLink]="['/book/',book.id]" alt="Thumbnail">
       </div>
     </div>
+  </div>
 
-  <button class = "carousel-control-prev" type="button" data-bs-target="#carouselExampleLight">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <div class="section">
+    <h2 class="section-title">Fantasy books</h2>
+    <div class="thumbnails">
+      <div class="thumbnail" *ngFor="let book of fantasyBooks">
+        <img [src]="book.thumbnail" [routerLink]="['/book/',book.id]" alt="Thumbnail">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Fiction books</h2>
+    <div class="thumbnails">
+      <div class="thumbnail" *ngFor="let book of mysteryBooks">
+        <img [src]="book.thumbnail" [routerLink]="['/book/',book.id]" alt="Thumbnail">
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- banner end -->
 
-<div class="contain mt-3 p-4">
-  <div class="row">
-    <h5 class="text-white">Fiction Books</h5>
-    <div class="rowposter">
-      <ng-container *ngFor="let f of fictionBooks">
-        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
-      </ng-container>
-    </div>
-  </div>
 
-
-  <div class="row mt-4">
-    <h5 class="text-white">Fantasy Books</h5>
-    <div class="rowposter mt-3 p-2">
-      <ng-container *ngFor="let f of fantasyBooks">
-        <img [src]="f.thumbnail" class="rowimg largeposter" alt="..." [routerLink]="['/book', f.id]">
-      </ng-container>
-    </div>
-  </div>
 
   <div class="row mt-4">
     <h5 class="text-white">Mystery Books</h5>

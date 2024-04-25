@@ -11,4 +11,21 @@ export interface Book {
     language: string;
     previewLink: string;
     infoLink: string;
-  }
+}
+
+export interface User {
+  name: string;
+  email: string;
+  password: string
+}
+
+export interface Comment {
+  user: User;
+  book: Book;
+  text: string;
+}
+
+export interface Cart {
+  user: User;
+  books: Book[]
+}
